@@ -1,0 +1,45 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Oct  2 01:16:53 2020
+
+@author: kaarthika
+
+email : makmakindia@gmal.com
+
+Topics:
+    1. Data Types 
+        Numbers and Charectors 
+    2. checking data type of each column
+    3. Count of unique data types 
+    4. selecting data  based on data type
+    5. Concise summary of dataframes 
+    6. Checking format of each column
+    7. Getting unique element of each column
+    
+    
+    Strings in panda as known as objects which can store value that contains number / char
+    
+
+"""
+
+import os
+import pandas as pd
+import numpy as np
+
+os.chdir("/home/kaarthika/spyderdemo/datascience")
+
+#import csv file 
+cars_data=pd.read_csv("/home/kaarthika/spyderdemo/datascience/datasets/Toyota.csv",index_col=0,na_values=["??"],delimiter=",")
+
+
+# cars_data.dtypes   # check data type of each column 
+
+# cars_data.select_dtypes(exclude=[object]) $ return non object data types in data frame
+
+# cars_data.info() # return structure of data frame
+
+
+print(np.unique(cars_data['KM'])) #  returns unique data set in data frame 
+print(np.unique(cars_data['Doors'])) #  returns unique data set in data frame 
+

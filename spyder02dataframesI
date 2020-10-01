@@ -1,0 +1,70 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Oct  2 00:23:15 2020
+
+@author: kaarthika
+email : makmakindia@gmail.com 
+
+1. intro to pandas 
+2. importing pandas into spyder
+import os , import pandas as pd ( data frames)
+import Numpy as np
+3. creating copy of original data 
+4. Attributes of data 
+5. Indexing and selcting data
+
+Shallow and deepcopy in python
+
+pandas are derived from panel data from statistics 
+dataframe - 2 dimentional size-mutable , hetogenious tabular data strcture rows & columns 
+
+using Toyota.csv file for this lecturee
+
+"""
+
+import os
+import pandas as pd
+import numpy as np
+
+os.chdir("/home/kaarthika/spyderdemo/datascience")
+
+#import csv file 
+cars_data=pd.read_csv("/home/kaarthika/spyderdemo/datascience/datasets/Toyota.csv",index_col=0)
+
+#Python have 2 copy options shallow & deep copy 
+#shallow copy = cars_data.copy(deep=False) only create variable that shares the reference of original object
+# any changes made to a copy of object reflects in original data
+
+cars_data1=cars_data.copy(deep=False)
+
+
+#Deep copy - in case of deep copy,  a copy of object is copied in other object with no refence to original copy , any chnages are made not reflects in original
+
+cars_data2=cars_data.copy(deep=True)
+
+
+# cars_data1.index # row labels 
+# cars_data1.columns # colum nlabels 
+# cars_data1.size # size of dataframe
+# cars_data1.shape # dimentionality of data frame ( rows , Cols)
+# #cars_data1.memory_usgae() # gives each column memory  bytes 
+# cars_data1.ndim # number of axis / array diemnstions
+
+# # indexing and selecting data - python slicing operator is [] and dot operator . is used for indexing
+
+# cars_data1.head(6) # return 6 rows of data frame , default 5 rows will give 
+# cars_data1.tail(6) # return last 6 rows of data frame 
+
+# # to access scalar value fatest way is to use at and iat methods
+# # at - provides label-based scalr look ups 
+# cars_data1.at[4,'FuelType']
+# # iat - provides integer based scalr lookupss 
+# cars_data1.iat[4,3]
+# # to access group of rows or columns used .loc operator 
+# cars_data1.loc[:,'FuelType']
+# cars_data1.loc[:,'FuelType' 'Doors']
+
+
+
+
